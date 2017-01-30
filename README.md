@@ -1,3 +1,8 @@
+[![Gem Version](https://badge.fury.io/rb/indonesia.svg)](https://badge.fury.io/rb/indonesia)
+[![Build Status](https://travis-ci.org/dimasjt/indonesia.svg?branch=master)](https://travis-ci.org/dimasjt/indonesia)
+[![Code Climate](https://codeclimate.com/github/dimasjt/indonesia/badges/gpa.svg)](https://codeclimate.com/github/dimasjt/indonesia)
+
+
 # Indonesia
 
 Get Indonesia addresses provinces, regencies and districts. Data from [edwardsamuel/Wilayah-Administratif-Indonesia](https://github.com/edwardsamuel/Wilayah-Administratif-Indonesia)
