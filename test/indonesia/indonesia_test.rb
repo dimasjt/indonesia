@@ -40,4 +40,37 @@ describe Indonesia do
       assert_empty Indonesia.districts(10010200102102010)
     end
   end
+
+  describe '#options_for_select' do
+    it "should return array of key and value for :province" do
+      provinces = Indonesia.provinces
+      options = Indonesia.options_for_select(:province)
+
+      assert_value_key(provinces, options)
+    end
+
+    it "should return array of key and value for :regency" do
+      regencies = Indonesia.regencies
+      options = Indonesia.options_for_select(:regency)
+
+      assert_value_key(regencies, options)
+    end
+
+    it "should return array of key and value for :district" do
+      districts = Indonesia.districts
+      options = Indonesia.options_for_select(:district)
+
+      assert_value_key(districts, options)
+    end
+
+    it "should return empty array if invalid argument" do
+      options = Indonesia.options_for_select(:invalid)
+      assert_empty options
+    end
+
+    def assert_value_key(data, options)
+      assert_equal data[0][:name], options[0][0]
+      assert_equal data[0][:id], options[0][1]
+    end
+  end
 end
