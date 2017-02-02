@@ -50,10 +50,48 @@ Indonesia.districts
 Indonesia.districts(1101)
 ```
 
-### Rails select options element
+### Rails select options
 
+#### Generate to Array
+```ruby
+# provinces
+Indonesia.options_for_select(:province)
+
+# result
+=> [["ACEH", 11], ["SUMATERA UTARA", 12], ["SUMATERA BARAT", 13], ...]
+
+# regencies
+Indonesia.options_for_select(:regency)
+# or
+Indonesia.options_for_select(:regency, 11) # 11 is province_id
+
+# result
+=> [["KABUPATEN SIMEULUE", 1101], ["KABUPATEN ACEH SINGKIL", 1102], ...]
+
+# districts
+Indonesia.options_for_select(:district, 1101) # 1101 is regency_id
+
+# result
+=> [["TEUPAH SELATAN", 1101010], ["SIMEULUE TIMUR", 1101020], ...]
+```
+#### Generate for select options rails
+* Province
 ```erb
-<%= f.select :province_id, options_for_select(Indonesia.provinces.map { |province| [province[:name], province[:id]] }) %>
+<%= f.select :province_id, Indonesia.options_for_select(:province) %>
+```
+
+* Regency
+```erb
+<%= f.select :regency_id, Indonesia.options_for_select(:regency) %>
+or
+<%= f.select :regency_id, Indonesia.options_for_select(:regency, 11) %>
+```
+
+* District
+```erb
+<%= f.select :district_id, Indonesia.options_for_select(:district) %>
+or
+<%= f.select :district_id, Indonesia.options_for_select(:district, 1101) %>
 ```
 
 ## Development
