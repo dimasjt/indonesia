@@ -12,7 +12,7 @@ Get Indonesia addresses provinces, regencies and districts. Data from [edwardsam
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'indonesia'
+gem 'indonesia', '~> 0.2.0'
 ```
 
 And then execute:
