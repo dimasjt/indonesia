@@ -1,7 +1,7 @@
 module Indonesia
   def self.districts(regency_id = nil)
     return self.all_districts if regency_id.nil?
-    self.all_districts.select { |district| district[:regency_id] == regency_id }
+    self.all_districts.select { |district| district[:regency_id] == regency_id.to_i }
   end
 
   def self.all_districts

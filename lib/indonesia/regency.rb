@@ -1,7 +1,7 @@
 module Indonesia
   def self.regencies(province_id = nil)
     return self.all_regencies if province_id.nil?
-    self.all_regencies.select { |regency| regency[:province_id] == province_id }
+    self.all_regencies.select { |regency| regency[:province_id] == province_id.to_i }
   end
 
   def self.all_regencies
