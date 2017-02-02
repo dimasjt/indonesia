@@ -28,11 +28,17 @@ Or install it yourself as:
 * Get all provinces
 ```ruby
 Indonesia.provinces
+
+# result
+=> [{:id=>11, :name=>"ACEH"}, {:id=>12, :name=>"SUMATERA UTARA"}, ...]
 ```
 
 * Get all regencies
 ```ruby
 Indonesia.regencies
+
+# result
+=> [{:id=>1101, :province_id=>11, :name=>"KABUPATEN SIMEULUE"}, ...]
 ```
 
 * Get regencies by Province ID
@@ -43,6 +49,9 @@ Indonesia.regencies(11)
 * Get all districts
 ```ruby
 Indonesia.districts
+
+# result
+=> [{:id=>1101010, :regency_id=>1101, :name=>"TEUPAH SELATAN"}, ...]
 ```
 
 * Get all districts by Regency ID
@@ -52,7 +61,7 @@ Indonesia.districts(1101)
 
 ### Rails select options
 
-#### Generate to Array
+#### #options_for_select (:province, :regency, :district)
 ```ruby
 # provinces
 Indonesia.options_for_select(:province)
