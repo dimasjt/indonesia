@@ -3,10 +3,6 @@ module Indonesia
     return self.all_regencies if province_id.nil?
     self.all_regencies.select { |regency| regency[:province_id] == province_id.to_i }
   end
-  
-  def self.find(name)
-    self.all_regencies.find { |regency| regency[:name].downcase == name.downcase }
-  end
 
   def self.all_regencies
     [

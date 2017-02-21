@@ -73,4 +73,28 @@ describe Indonesia do
       assert_equal data[0][:id], options[0][1]
     end
   end
+
+  describe "#find" do
+    it "should return province by name" do
+      province = Indonesia.find(:province, 'jawa barat')
+      assert_equal province[:name], 'JAWA BARAT'
+    end
+
+    it "should return regency by name" do
+      regency = Indonesia.find(:regency, 'kota cimahi')
+      assert_equal regency[:name], 'KOTA CIMAHI'
+    end
+
+    it "should return district by name" do
+      district = Indonesia.find(:district, 'meukek')
+      assert_equal district[:name], 'MEUKEK'
+    end
+
+    %w(province regency district).each do |type|
+      it "should return nil if name invalid" do
+        data = Indonesia.find(type, 'invalid name')
+        assert_nil data
+      end
+    end
+  end
 end
