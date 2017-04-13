@@ -16,4 +16,17 @@ module Indonesia
       []
     end
   end
+
+  def self.find(type, query)
+    address = %w(province regency district)
+    types = address + address.map(&:to_sym)
+
+    if types.include? type
+      # manual using pluralize
+      type = type.to_s == 'regency' ? 'regencies' : "#{type}s"
+      self.send(type).find { |t| t[:name].downcase == query.downcase }
+    else
+      nil
+    end
+  end
 end
