@@ -12,7 +12,7 @@ Get Indonesia addresses provinces, regencies and districts. Data from [edwardsam
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'indonesia', '~> 0.3.0'
+gem 'indonesia', '~> 0.4.0'
 ```
 
 And then execute:
@@ -24,6 +24,10 @@ Or install it yourself as:
     $ gem install indonesia
 
 ## Usage
+
+* [Rails helper](#rails-helper)
+* [Rails migrations](#rails-migrations)
+
 
 * Get all provinces
 ```ruby
@@ -59,7 +63,7 @@ Indonesia.districts
 Indonesia.districts(1101)
 ```
 
-### Rails select options
+### Rails helper
 
 #### #options_for_select (:province, :regency, :district)
 ```ruby
@@ -102,6 +106,19 @@ or
 or
 <%= f.select :district_id, Indonesia.options_for_select(:district, 1101) %>
 ```
+
+### Rails migrations
+
+Generate models, migrations and save address data to database
+
+Installation
+
+```bash
+$ rails generate indonesia:install
+
+$ rake db:migrate
+```
+This will create models `Province`, `Regency` and `District`
 
 ## Development
 
