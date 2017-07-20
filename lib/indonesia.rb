@@ -1,7 +1,10 @@
+require 'csv'
+
 require 'indonesia/version'
 require 'indonesia/province'
 require 'indonesia/regency'
 require 'indonesia/district'
+require 'indonesia/village'
 
 module Indonesia
   def self.options_for_select(type = :province, parent_id = nil)
