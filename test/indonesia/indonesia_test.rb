@@ -42,6 +42,22 @@ describe Indonesia do
     end
   end
 
+  describe '#villages' do
+    it 'should return all villages if no args' do
+      villages = Indonesia.villages
+      assert_equal villages.class.name, 'Array'
+      assert_equal villages.empty?, false
+    end
+
+    it 'should return all villages by district id' do
+      assert_equal Indonesia.villages(1101010).empty?, false
+    end
+
+    it 'should return empty' do
+      assert_empty Indonesia.villages(12912000012)
+    end
+  end
+
   describe '#options_for_select' do
     it 'should return array of key and value for :province' do
       provinces = Indonesia.provinces
