@@ -11,7 +11,7 @@ Get Indonesia addresses provinces, regencies and districts. Data from [edwardsam
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'indonesia', '~> 0.4.0'
+gem 'indonesia', '~> 0.5.0'
 ```
 
 And then execute:
@@ -62,6 +62,18 @@ Indonesia.districts
 Indonesia.districts(1101)
 ```
 
+* Get all villages
+```ruby
+Indonesia.villages
+
+# result
+=> [{:id=>1101010001, :district_id=>1101010, :name=>"LATIUNG"},...]
+```
+
+* Get all districts by district id
+```ruby
+Indonesia.villages(1101010)
+```
 ### Rails helper
 
 #### #options_for_select (:province, :regency, :district)
