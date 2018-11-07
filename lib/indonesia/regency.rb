@@ -1,7 +1,8 @@
 module Indonesia
   def self.regencies(province_id = nil)
     @_regencies ||= begin
-      data = CSV.read('./lib/data/regencies.csv')
+      csv_path = "#{File.expand_path('../../', __FILE__)}/data/regencies.csv"
+      data = CSV.read(csv_path)
       data.map { |r| { id: r[0].to_i, province_id: r[1].to_i, name: r[2] } }
     end
 
