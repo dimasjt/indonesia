@@ -44,11 +44,6 @@ Indonesia.regencies
 => [{:id=>1101, :province_id=>11, :name=>"KABUPATEN SIMEULUE"}, ...]
 ```
 
-* Get regencies by Province ID
-```ruby
-Indonesia.regencies(11)
-```
-
 * Get all districts
 ```ruby
 Indonesia.districts
@@ -56,66 +51,12 @@ Indonesia.districts
 # result
 => [{:id=>1101010, :regency_id=>1101, :name=>"TEUPAH SELATAN"}, ...]
 ```
-
-* Get all districts by Regency ID
-```ruby
-Indonesia.districts(1101)
-```
-
 * Get all villages
 ```ruby
 Indonesia.villages
 
 # result
 => [{:id=>1101010001, :district_id=>1101010, :name=>"LATIUNG"},...]
-```
-
-* Get all districts by district id
-```ruby
-Indonesia.villages(1101010)
-```
-### Rails helper
-
-#### #options_for_select (:province, :regency, :district)
-```ruby
-# provinces
-Indonesia.options_for_select(:province)
-
-# result
-=> [["ACEH", 11], ["SUMATERA UTARA", 12], ["SUMATERA BARAT", 13], ...]
-
-# regencies
-Indonesia.options_for_select(:regency)
-# or
-Indonesia.options_for_select(:regency, 11) # 11 is province_id
-
-# result
-=> [["KABUPATEN SIMEULUE", 1101], ["KABUPATEN ACEH SINGKIL", 1102], ...]
-
-# districts
-Indonesia.options_for_select(:district, 1101) # 1101 is regency_id
-
-# result
-=> [["TEUPAH SELATAN", 1101010], ["SIMEULUE TIMUR", 1101020], ...]
-```
-#### Generate for select options rails
-* Province
-```erb
-<%= f.select :province_id, Indonesia.options_for_select(:province) %>
-```
-
-* Regency
-```erb
-<%= f.select :regency_id, Indonesia.options_for_select(:regency) %>
-or
-<%= f.select :regency_id, Indonesia.options_for_select(:regency, 11) %>
-```
-
-* District
-```erb
-<%= f.select :district_id, Indonesia.options_for_select(:district) %>
-or
-<%= f.select :district_id, Indonesia.options_for_select(:district, 1101) %>
 ```
 
 ### Rails migrations
